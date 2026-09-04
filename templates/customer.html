@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Search Portal</title>
+
+.btn{
+display:inline-block;
+padding:10px 18px;
+background:#0d47a1;
+color:white;
+text-decoration:none;
+border-radius:5px;
+}
+
+<style>
+body{
+    font-family: Arial;
+    background:#eef4ff;
+    margin:40px;
+}
+
+h1{
+    text-align:center;
+    color:#0d47a1;
+}
+
+.search-box{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 5px 20px rgba(0,0,0,.2);
+    margin-bottom:30px;
+}
+
+input,select{
+    padding:10px;
+    margin:5px;
+}
+
+button{
+    padding:10px 20px;
+    background:#0d47a1;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    margin:20px 0;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.badge{
+    display:inline-block;
+    background:#0d47a1;
+    color:white;
+    padding:5px 10px;
+    border-radius:5px;
+    margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Customer Search Portal</h1>
+
+<div class="search-box">
+
+<form method="GET" action="/customer">
+
+<input type="text" name="search" placeholder="Search Name">
+
+<input type="text" name="city" placeholder="City">
+
+<select name="loan">
+<option value="">All Loan Types</option>
+<option value="Personal Loan">Personal Loan</option>
+<option value="Business Loan">Business Loan</option>
+<option value="Home Loan">Home Loan</option>
+<option value="Loan Against Property">Loan Against Property</option>
+<option value="Car Loan">Car Loan</option>
+</select>
+
+<button type="submit">Search</button>
+
+</form>
+
+</div>
+
+{% if people %}
+
+{% for person in people %}
+
+<div class="card">
+
+<h2>{{ person.name }}</h2>
+
+<p><b>Email:</b> {{ person.email }}</p>
+
+<p><b>Role:</b> {{ person.role }}</p>
+
+<p><b>City:</b> {{ person.city or "Not Available" }}</p>
+
+<span class="badge">{{ person.status }}</span>
+
+<br><br>
+
+{% if person.role=="DSA" %}
+
+<a href="/dsa/profile/{{ person.dsa_id }}" class="btn">
+View Profile
+</a>
+
+{% endif %}
+</div>
+
+{% endfor %}
+
+{% else %}
+
+<h3 style="text-align:center;">No matching results found.</h3>
+
+{% endif %}
+
+</body>
+</html>

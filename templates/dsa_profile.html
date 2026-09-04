@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DSA Profile</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#eef4ff;
+margin:40px;
+}
+
+.card{
+background:white;
+max-width:850px;
+margin:auto;
+padding:30px;
+border-radius:12px;
+box-shadow:0 5px 20px rgba(0,0,0,.2);
+}
+
+h1{
+color:#0d47a1;
+text-align:center;
+}
+
+.section{
+margin:20px 0;
+padding:15px;
+background:#f8f9ff;
+border-left:5px solid #0d47a1;
+border-radius:6px;
+}
+
+.review{
+background:#ffffff;
+border:1px solid #ddd;
+padding:12px;
+margin:10px 0;
+border-radius:6px;
+}
+
+.btn{
+display:inline-block;
+background:#0d47a1;
+color:white;
+padding:10px 18px;
+text-decoration:none;
+border-radius:5px;
+margin-top:15px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+    <img
+src="/uploads/{{ user.photo }}"
+width="140"
+height="140"
+style="border-radius:50%;object-fit:cover;border:4px solid #0d47a1;">
+
+<h1>{{ user.name }}</h1>
+
+<div class="section">
+<p><b>Email:</b> {{ user.email }}</p>
+<p><b>City:</b> {{ city }}</p>
+<p><b>Role:</b> DSA</p>
+</div>
+
+<div class="section">
+<h3>Loan Types</h3>
+
+<ul>
+
+{% for loan in loans %}
+
+<li>{{ loan.loan_name }}</li>
+
+{% endfor %}
+
+</ul>
+
+</div>
+
+<div class="section">
+<h3>Banks Processed</h3>
+
+<ul>
+
+{% for bank in banks %}
+
+<li>{{ bank.bank_name }}</li>
+
+{% endfor %}
+
+</ul>
+
+</div>
+
+<div class="section">
+
+<h3>⭐ Average Rating: {{ avg_rating }}</h3>
+
+<p>Total Reviews: {{ total_reviews }}</p>
+
+</div>
+
+<div class="section">
+
+<h3>Customer Reviews</h3>
+
+{% if reviews %}
+
+{% for review in reviews %}
+
+<div class="review">
+
+<b>{{ review.customer_name }}</b>
+
+<p>⭐ {{ review.rating }}</p>
+
+<p>{{ review.comment }}</p>
+
+</div>
+
+{% endfor %}
+
+{% else %}
+
+<p>No reviews yet.</p>
+
+{% endif %}
+
+</div>
+
+<a href="/review/{{ dsa_id }}" class="btn">Write Review</a>
+<a
+href="https://wa.me/91{{ whatsapp }}?text=Hello%20{{ user.name }}%2C%20mujhe%20Loan%20ke%20baare%20me%20baat%20karni%20hai."
+class="btn"
+target="_blank">
+
+💬 Contact on WhatsApp
+
+</a>
+
+</div>
+
+</body>
+</html>

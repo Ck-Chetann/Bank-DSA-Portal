@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Rate DSA</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#eef4ff;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+}
+
+.card{
+background:white;
+width:450px;
+padding:30px;
+border-radius:12px;
+box-shadow:0 5px 20px rgba(0,0,0,.2);
+}
+
+h2{
+text-align:center;
+color:#0d47a1;
+}
+
+input, textarea, select{
+width:100%;
+padding:10px;
+margin:10px 0;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#0d47a1;
+color:white;
+border:none;
+cursor:pointer;
+font-size:16px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h2>Rate a DSA</h2>
+
+<form action="/review/1" method="POST">
+
+<input
+type="text"
+name="customer_name"
+placeholder="Customer Name"
+required>
+
+<select name="rating" required>
+
+<option value="1">1 Star</option>
+<option value="2">2 Star</option>
+<option value="3">3 Star</option>
+<option value="4">4 Star</option>
+<option value="5">5 Star</option>
+
+</select>
+
+<textarea
+name="comment"
+placeholder="Write your review"
+required></textarea>
+
+<button type="submit">Submit Review</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

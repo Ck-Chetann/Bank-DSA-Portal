@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DSA Dashboard</title>
+
+<style>
+body{
+font-family:Arial;
+background:#eef4ff;
+margin:40px;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 5px 20px rgba(0,0,0,.2);
+max-width:700px;
+margin:auto;
+}
+
+h1{
+color:#0d47a1;
+text-align:center;
+}
+
+.box{
+background:#f5f7ff;
+padding:15px;
+margin:15px 0;
+border-left:5px solid #0d47a1;
+}
+
+.logout{
+background:#d32f2f;
+color:white;
+padding:12px 20px;
+text-decoration:none;
+border-radius:6px;
+display:inline-block;
+margin-top:20px;
+}
+
+.logout:hover{
+background:#b71c1c;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>DSA Dashboard</h1>
+
+<div class="box">
+<b>Name:</b> {{ user.name }}
+</div>
+
+<div class="box">
+<b>Email:</b> {{ user.email }}
+</div>
+
+<div class="box">
+<b>Status:</b> {{ user.status }}
+</div>
+
+<div class="box">
+<b>Role:</b> {{ user.role }}
+</div>
+
+<div class="box">
+<b>⭐ Average Rating:</b> {{ avg_rating }}
+</div>
+
+<div class="box">
+<b>📝 Total Reviews:</b> {{ total_reviews }}
+</div>
+
+<p>Welcome to the Bank & DSA Connect Portal.</p>
+
+<a href="/logout" class="logout">Logout</a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DSA Registration</title>
+
+<style>
+body{
+    font-family:Arial;
+    background:#eef4ff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.card{
+    background:white;
+    width:500px;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 5px 20px rgba(0,0,0,.2);
+}
+
+h2{
+    text-align:center;
+    color:#0d47a1;
+}
+
+input,textarea{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#0d47a1;
+    color:white;
+    border:none;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.loan-box{
+    margin:10px 0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h2>DSA Registration</h2>
+
+<form action="/dsa/register"
+      method="POST"
+      enctype="multipart/form-data">
+
+<input type="text" name="name" placeholder="Full Name" required>
+
+<input type="email" name="email" placeholder="Email" required>
+
+<label>Profile Photo</label>
+<input type="file" name="photo" accept="image/*" required>
+
+
+<input type="text" name="phone" placeholder="Phone Number" required>
+<input type="text" name="whatsapp" placeholder="WhatsApp Number" required>
+
+<input type="password" name="password" placeholder="Password" required>
+
+<input type="text" name="city" placeholder="City">
+
+<input type="text" name="state" placeholder="State">
+
+<textarea name="address" placeholder="Address"></textarea>
+
+<h3>Select Loan Types</h3>
+
+<div class="loan-box">
+
+<label><input type="checkbox" name="loans" value="Personal Loan"> Personal Loan</label><br>
+
+<label><input type="checkbox" name="loans" value="Business Loan"> Business Loan</label><br>
+
+<label><input type="checkbox" name="loans" value="Home Loan"> Home Loan</label><br>
+
+<label><input type="checkbox" name="loans" value="Loan Against Property"> Loan Against Property</label><br>
+
+<label><input type="checkbox" name="loans" value="Car Loan"> Car Loan</label>
+
+</div>
+
+<input type="text" name="banks" placeholder="Banks (Example: SBI,HDFC,ICICI)">
+
+<button type="submit">Register</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

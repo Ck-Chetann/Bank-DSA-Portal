@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Verify OTP</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#eef4ff;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+}
+
+.card{
+background:white;
+padding:30px;
+width:400px;
+border-radius:12px;
+box-shadow:0 5px 20px rgba(0,0,0,.2);
+}
+
+input{
+width:100%;
+padding:10px;
+margin:12px 0;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#0d47a1;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h2>Email Verification</h2>
+
+<p>Enter the 6-digit OTP sent to your email.</p>
+
+<form action="/verify-otp" method="POST">
+
+<input
+type="text"
+name="otp"
+placeholder="Enter OTP"
+required>
+
+<button type="submit">
+Verify OTP
+</button>
+
+</form>
+
+<br>
+
+<a href="/resend-otp">
+    <button type="button">
+        Resend OTP
+    </button>
+</a>
+
+</div>
+
+</body>
+</html>
